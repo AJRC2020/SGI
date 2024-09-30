@@ -1,0 +1,798 @@
+<sxs>
+    <scene root="demoRoot" axis_length="5"/>
+
+    <views default="defaultCamera">
+    </views>
+
+    <ambient>
+        <ambient r="0.2" g="0.2" b="0.2" a="1.0" />
+        <background r="0.0" g="0.0" b="0.0" a="1.0" />
+    </ambient>
+
+    <lights>
+        <omni id="demoLight" enabled="1">
+            <location x="9.8" y="11.9" z="10" w="1.0" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <omni id="omni1" enabled="1">
+            <location x="30" y="-25" z="2" w="1.0" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1.0" g="1.0" b="1.0" a="1.0" />
+            <specular r="1.0" g="1.0" b="1.0" a="1.0" />
+            <attenuation constant="1.0" linear="0.0" quadratic="0.0" />
+        </omni>
+        <spot id="spot1" enabled="1" angle="90" exponent="1">
+            <location x="-25" y="-30" z="10" w="1.0"/>
+            <target x="-36" y="-36" z="0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="1.0" g="0.0" b="1.0" a="1.0" />
+            <specular r="0.2" g="0.2" b="0.2" a="1.0" />
+            <attenuation constant="0.3" linear="0.0" quadratic="0.0" />
+        </spot>
+        <spot id="spot2" enabled="1" angle="90" exponent="10">
+            <location x="0" y="60" z="15" w="1.0" />
+            <target x="0" y="0" z="0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="1.0" g="0.5" b="0.0" a="1.0" />
+            <specular r="0.2" g="0.2" b="0.2" a="1.0" />
+            <attenuation constant="0.1" linear="0.0" quadratic="0.0" />
+        </spot>
+        <spot id="spot3" enabled="1" angle="45" exponent="1">
+            <location x="30" y="-20" z="10" w="1.0" />
+            <target x="30" y="-27" z="0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.0" g="1.0" b="0.0" a="1.0" />
+            <specular r="0.3" g="0.3" b="0.3" a="1.0" />
+            <attenuation constant="0.1" linear="0.0" quadratic="0.0" />
+        </spot>
+    </lights>
+
+    <textures>
+        <texture id="road" file="scenes/images/road.jpg" />
+        <texture id="intersection" file="scenes/images/intersection.jpeg" />
+        <texture id="wood" file="scenes/images/wood.jpg" />
+        <texture id="garden" file="scenes/images/garden.jpeg" />
+        <texture id="building" file="scenes/images/building.jpg" />
+        <texture id="residence" file="scenes/images/residence.jpg" />
+        <texture id="office" file="scenes/images/office.jpeg" />
+        <texture id="old" file="scenes/images/old.jpeg" />
+        <texture id="trunk" file="scenes/images/trunk-image.jpg" />
+    </textures>
+
+    <materials>
+        <material id="whiteMaterial" shininess="9">
+            <emission r="0.5" g="0.5" b="0.5" a="1.0" />
+            <ambient r="1.0" g="1.0" b="1.0" a="1.0" />
+            <diffuse r="0.5" g="0.5" b="0.5" a="1.0" />
+            <specular r="0.5" g="0.5" b="0.5" a="1.0" />
+        </material>
+        <material id="leafMaterial" shininess="10">
+            <emission r="0.1" g="0.5" b="0.0" a="1.0" />
+            <ambient r="0.5" g="1.0" b="0.0" a="1.0" />
+            <diffuse r="0.25" g="0.5" b="0.0" a="1.0" />
+            <specular r="0.1" g="0.5" b="0.0" a="1.0" /> 
+        </material>
+        <material id="redMaterial" shininess="10">
+            <emission r="0.5" g="0.0" b="0.0" a="1.0" />
+            <ambient r="1.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.5" g="0.0" b="0.0" a="1.0" />
+            <specular r="0.5" g="0.0" b="0.0" a="1.0" />
+        </material>
+        <material id="blackMaterial" shininess="1">
+            <emission r="0.0" g="0.0" b="0.0" a="1.0" />
+            <ambient r="0.0" g="0.0" b="0.0" a="1.0" />
+            <diffuse r="0.0" g="0.0" b="0.0" a="1.0" />
+            <specular r="0.0" g="0.0" b="0.0" a="1.0" />
+        </material>
+    </materials>
+
+    <transformations>
+    </transformations>
+
+    <animations>
+        <keyframeanim id="carDrive">
+            <keyframe instant="1">
+                <translate x="0" y="0" z="0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="5">
+                <translate x="0" y="98" z="0" />
+                <rotation axis="x" angle="0" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="6">
+                <translate x="0" y="100" z="0" />
+                <rotation axis="x" angle="-45" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="7">
+                <translate x="0" y="108" z="0" />
+                <rotation axis="x" angle="-90" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="12">
+                <translate x="98" y="108" z="0" />
+                <rotation axis="x" angle="-90" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="13">
+                <translate x="100" y="108" z="0" />
+                <rotation axis="x" angle="-135" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="14">
+                <translate x="108" y="108" z="0" />
+                <rotation axis="x" angle="-180" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="19">
+                <translate x="108" y="10" z="0" />
+                <rotation axis="x" angle="-180" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="20">
+                <translate x="108" y="8" z="0" />
+                <rotation axis="x" angle="-225" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="21">
+                <translate x="108" y="0" z="0" />
+                <rotation axis="x" angle="-270" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="26">
+                <translate x="10" y="0" z="0" />
+                <rotation axis="x" angle="-270" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="27">
+                <translate x="8" y="0" z="0" />
+                <rotation axis="x" angle="-315" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+            <keyframe instant="28">
+                <translate x="0" y="0" z="0" />
+                <rotation axis="x" angle="-360" />
+                <rotation axis="y" angle="0" />
+                <rotation axis="z" angle="0" />
+                <scale sx="1.0" sy="1.0" sz="1.0" />
+            </keyframe>
+        </keyframeanim>
+    </animations>
+
+    <primitives>
+        <primitive id="street">
+            <rectangle x1="0" y1="0" x2="2" y2="50" />
+        </primitive>
+        <primitive id="faceQuad">
+            <rectangle x1="0" y1="0" x2="2" y2="2" />
+        </primitive>
+        <primitive id="cylinder">
+            <cylinder base="0.25" top="0.25" height="5" slices="10" stacks="10" />
+        </primitive>
+        <primitive id="garden">
+            <rectangle x1="-25" y1="-25" x2="25" y2="25" />
+        </primitive>
+        <primitive id="leaves">
+            <sphere radius="3.0" slices="20" stacks="10" />
+        </primitive>
+        <primitive id="patch1">
+            <patch degree_u="2" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="-2.0" z="0.0" />
+                <controlpoint x="-2.0" y="-2.0" z="0.0" />
+                <controlpoint x="-2.0" y="2.0" z="0.0" />
+                <controlpoint x="0.0" y="2.0" z="0.0"  />
+                <controlpoint x="0.0" y="-2.0" z="2.0"  />
+                <controlpoint x="-2.0" y="-2.0" z="2.0"  />
+                <controlpoint x="-2.0" y="2.0" z="2.0"  />
+                <controlpoint x="0.0" y="2.0" z="2.0"  />
+                <controlpoint x="0.0" y="-2.0" z="4.0"  />
+                <controlpoint x="-2.0" y="-2.0" z="4.0"  />
+                <controlpoint x="-2.0" y="2.0" z="4.0"  />
+                <controlpoint x="0.0" y="2.0" z="4.0"  />
+            </patch> 
+        </primitive>
+        <primitive id="patch2">
+            <patch degree_u="2" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="2.0" z="0.0" />
+                <controlpoint x="2.0" y="2.0" z="0.0" />
+                <controlpoint x="2.0" y="-2.0" z="0.0" />
+                <controlpoint x="0.0" y="-2.0" z="0.0"  />
+                <controlpoint x="0.0" y="2.0" z="2.0"  />
+                <controlpoint x="2.0" y="2.0" z="2.0"  />
+                <controlpoint x="2.0" y="-2.0" z="2.0"  />
+                <controlpoint x="0.0" y="-2.0" z="2.0"  />
+                <controlpoint x="0.0" y="2.0" z="4.0"  />
+                <controlpoint x="2.0" y="2.0" z="4.0"  />
+                <controlpoint x="2.0" y="-2.0" z="4.0"  />
+                <controlpoint x="0.0" y="-2.0" z="4.0"  />
+            </patch> 
+        </primitive>
+        <primitive id="patch3">
+            <patch degree_u="1" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="2.0" z="4.0" />
+                <controlpoint x="2.0" y="2.0" z="4.0" />
+                <controlpoint x="2.0" y="-2.0" z="4.0" />
+                <controlpoint x="0.0" y="-2.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+            </patch>
+        </primitive>
+        <primitive id="patch4">
+            <patch degree_u="1" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="-2.0" z="4.0"  />
+                <controlpoint x="-2.0" y="-2.0" z="4.0"  />
+                <controlpoint x="-2.0" y="2.0" z="4.0"  />
+                <controlpoint x="0.0" y="2.0" z="4.0"  />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+                <controlpoint x="0.0" y="0.0" z="4.0" />
+            </patch>
+        </primitive>
+        <primitive id="patch5">
+            <patch degree_u="1" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="2.0" z="0.0" />
+                <controlpoint x="-2.0" y="2.0" z="0.0" />
+                <controlpoint x="-2.0" y="-2.0" z="0.0" />
+                <controlpoint x="0.0" y="-2.0" z="0.0"  />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+            </patch>
+        </primitive>
+        <primitive id="patch6">
+            <patch degree_u="1" parts_u="20" degree_v="3" parts_v="20">
+                <controlpoint x="0.0" y="-2.0" z="0.0" />
+                <controlpoint x="2.0" y="-2.0" z="0.0" />
+                <controlpoint x="2.0" y="2.0" z="0.0" />
+                <controlpoint x="0.0" y="2.0" z="0.0"  />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+                <controlpoint x="0.0" y="0.0" z="0.0" />
+            </patch>
+        </primitive>
+    </primitives> 
+
+    <components>
+        <component id="demoRoot">
+            <transformation>
+                <scale x="5.0" y="5.0" z="5.0" />
+                <translate x="1.25" y="1.0" z="-5" />
+            </transformation>
+            <materials>
+                <material id="whiteMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="table" />
+                <componentref id="streets" />
+                <componentref id="intersections" />
+                <componentref id="gardenGround" />
+                <componentref id="building1" />
+                <componentref id="building2" />
+                <componentref id="building3" />
+                <componentref id="building4" />
+                <componentref id="tree1" />
+                <componentref id="tree2" />
+                <componentref id="tree3" />
+                <componentref id="car" />
+            </children>
+        </component>
+
+        <component id="car">
+            <transformation>
+                <translate x="27" y="-27" z="0.0" />
+                <rotate axis="z" angle="90" /> 
+                <scale x="0.5" y="0.5" z="0.75" /> 
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="carTop" />
+                <componentref id="carMiddle" />
+                <componentref id="tyre" />
+                <componentref id="tyre2" />
+                <componentref id="tyre3" />
+                <componentref id="tyre4" />
+            </children>
+            <animation id="carDrive" />
+        </component>
+        <component id="carTop">
+            <transformation>
+                <translate x="0.0" y="2.0" z="1.5" />
+                <scale x="2.0" y="3.0" z="0.5" />
+            </transformation>
+            <materials>
+                <material id="redMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <primitiveref id="box" />
+            </children>
+        </component>
+        <component id="carMiddle">
+            <transformation>
+                <translate x="0.0" y="0.0" z="0.5" />
+                <scale x="2.0" y="5.0" z="0.5" />
+            </transformation>
+            <materials>
+                <material id="redMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <primitiveref id="box" />
+            </children>
+        </component>
+        <component id="tyre">
+            <transformation>
+                <translate x="0.0" y="1.0" z="0.75" />
+                <rotate axis="y" angle="90" />
+                <scale x="0.5" y="0.5" z="0.25" />
+            </transformation>
+            <materials>
+                <material id="blackMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <primitiveref id="patch1" />
+                <primitiveref id="patch2" />
+                <primitiveref id="patch3" />
+                <primitiveref id="patch4" />
+                <primitiveref id="patch5" />
+                <primitiveref id="patch6" />
+            </children>
+        </component>
+        <component id="tyre2">
+            <transformation>
+                <translate x="3.0" y="0.0" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="blackMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="tyre" />
+            </children>
+        </component>
+        <component id="tyre3">
+            <transformation>
+                <translate x="0.0" y="8.0" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="blackMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="tyre" />
+            </children>
+        </component>
+        <component id="tyre4">
+            <transformation>
+                <translate x="3.0" y="8.0" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="blackMaterial" />
+            </materials>
+            <texture id="none" />
+            <children>
+                <componentref id="tyre" />
+            </children>
+        </component>
+
+        <component id="tree1">
+            <transformation>
+                <translate x="-20" y="10" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="trunk" />
+                <componentref id="treeLeaves" />
+            </children>
+        </component>
+        <component id="tree2">
+            <transformation>
+                <translate x="-10" y="-20" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="trunk" />
+                <componentref id="treeLeaves" />
+            </children>
+        </component>
+        <component id="tree3">
+            <transformation>
+                <translate x="5" y="-10" z="0.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="trunk" />
+                <componentref id="treeLeaves" />
+            </children>
+        </component>
+        <component id="trunk">
+            <transformation>
+                <scale x="2.0" y="2.0" z="1.5" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="trunk" length_s="1.0" length_t="1.0" />
+            <children>
+                <primitiveref id="cylinder" />
+            </children>
+        </component>
+        <component id="treeLeaves">
+            <transformation>
+                <translate x="0.0" y="0.0" z="6.5" />
+            </transformation>
+            <materials>
+                <material id="leafMaterial" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="leaves" />
+            </children>
+        </component>
+
+        <component id="building1">
+            <transformation>
+                <translate x="-27.0" y="0.0" z="25.0" />
+                <rotate axis="y" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="building" length_s="50" length_t="50" />
+            <children>
+                <primitiveref id="garden" />
+            </children>
+        </component>
+
+        <component id="building2">
+            <transformation>
+                <translate x="27.0" y="0.0" z="25.0" />
+                <rotate axis="y" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="residence" length_s="50" length_t="50" />
+            <children>
+                <primitiveref id="garden" />
+            </children>
+        </component>
+
+        <component id="building3">
+            <transformation>
+                <translate x="0.0" y="-27.0" z="25.0" />
+                <rotate axis="x" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="office" length_s="50" length_t="50" />
+            <children>
+                <primitiveref id="garden" />
+            </children>
+        </component>
+
+        <component id="building4">
+            <transformation>
+                <translate x="0.0" y="27.0" z="25.0" />
+                <rotate axis="x" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="old" length_s="50" length_t="50" />
+            <children>
+                <primitiveref id="garden" />
+            </children>
+        </component>
+
+        <component id="gardenGround">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="garden" length_s="50" length_t="50" />
+            <children>
+                <componentref id="garden" />
+            </children>
+        </component>
+
+        <component id="intersections">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="intersection" length_s="2.0" length_t="2.0" />
+            <children>
+                <componentref id="intersection1" />
+                <componentref id="intersection2" />
+                <componentref id="intersection3" />
+                <componentref id="intersection4" />
+            </children>
+        </component>
+        <component id="intersection1">
+            <transformation>
+                <translate x="-27" y="-27" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>
+        <component id="intersection2">
+            <transformation>
+                <translate x="25" y="-27" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>
+        <component id="intersection3">
+            <transformation>
+                <translate x="-27" y="25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>
+        <component id="intersection4">
+            <transformation>
+                <translate x="25" y="25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>
+
+        <component id="streets">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="road" length_s="2.0" length_t="50.0" />
+            <children>
+                <componentref id="street1" />
+                <componentref id="street2" />
+                <componentref id="street3" />
+                <componentref id="street4" />
+            </children>
+        </component>
+        <component id="street1">
+            <transformation>
+                <translate x="-27" y="-25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="street" />            
+            </children>
+        </component>
+        <component id="street2">
+            <transformation>
+                <rotate axis="z" angle="90" />
+                <translate x="-27" y="-25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="street" />            
+            </children>
+        </component>
+        <component id="street3">
+            <transformation>
+                <rotate axis="z" angle="90" />
+                <translate x="25" y="-25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="street" />            
+            </children>
+        </component>
+        <component id="street4">
+            <transformation>
+                <translate x="25" y="-25" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="street" />            
+            </children>
+        </component>
+        
+
+        <component id="table">
+            <transformation>
+                <scale x="1.5" y="1.5" z="1.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>  
+            <texture id="wood" length_s="3.0" length_t="3.0" />
+            <children>
+                <primitiveref id="cylinder" />
+                <componentref id="tableTop" />
+            </children>
+        </component>
+        <component id="tableTop">
+            <transformation>
+                <scale x="2.0" y="2.0" z="0.5" />
+                <translate x="-1.0" y="-1.0" z="6.0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="box" />
+            </children>
+        </component>
+
+        <component id="box">
+            <transformation>
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <componentref id="faceQuad0" />
+                <componentref id="faceQuad1" />
+                <componentref id="faceQuad2" /> 
+                <componentref id="faceQuad3" />               
+                <componentref id="faceQuad4" />
+                <componentref id="faceQuad5" />
+            </children>
+        </component>
+        <component id="faceQuad0">
+            <transformation>
+                <translate x="0" y="0" z="2" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component> 
+        <component id="faceQuad1">
+            <transformation>
+                <translate x="0" y="0" z="4" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component> 
+        <component id="faceQuad2">
+            <transformation>
+                <rotate axis="x" angle="90" />
+                <translate x="0" y="2" z="0" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component> 
+        <component id="faceQuad3">
+            <transformation>
+                <rotate axis="x" angle="90" />
+                <translate x="0" y="2" z="-2" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component> 
+        <component id="faceQuad4">
+            <transformation>
+                <translate x="2" y="0" z="4" />
+                <rotate axis="y" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>
+        <component id="faceQuad5">
+            <transformation>
+                <translate x="0" y="0" z="4" />
+                <rotate axis="y" angle="90" />
+            </transformation>
+            <materials>
+                <material id="inherit" />
+            </materials>
+            <texture id="inherit" />
+            <children>
+                <primitiveref id="faceQuad" />
+            </children>
+        </component>  
+    </components>
+</sxs>
